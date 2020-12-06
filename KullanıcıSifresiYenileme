@@ -1,0 +1,77 @@
+class Acount:
+    def __init__(self,sifre):
+        self.sifre= self.yeniSifre()
+        print("YeniSifre : ",self.sifre)
+
+    def yeniSifre(self):
+        kucukHarf=('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'v', 'y','z')
+        buyukHarf = ('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'R', 'S', 'T', 'U', 'V', 'Y','Z')
+        rakam=('1', '2', '3','4' , '5','6' ,'7' ,'8' ,'9' )
+        isaret=('/', '*', '+', '-')
+        istenmeyenKarakter=('ı', 'ü', 'ö', 'ç','ş','Ş', 'ğ', 'İ', 'Ü', 'Ö', 'Ç', 'Ğ')
+        uzunluk = False
+        kucukH = False
+        buyukH = False
+        istenmeyenK = False
+        rakams = False
+        isarets = False
+        while(uzunluk == False or kucukH == False or buyukH == False or istenmeyenK == True or rakams == False or  isarets == False):
+            uzunluk = False
+            kucukH = False
+            buyukH = False
+            istenmeyenK = False
+            rakams = False
+            isarets = False
+            yenisifre=input("yeni sifre giriniz : ")
+            if (len(yenisifre)>=8):
+                uzunluk=True
+            for i in range(len(kucukHarf)):
+                for j in range(len(yenisifre)):
+                    if kucukHarf[i]==yenisifre[j]:
+                        kucukH=True
+                    j += 1
+                i += 1
+            i=0
+            for i in range(len(buyukHarf)):
+                for j in range(len(yenisifre)):
+                    if(buyukHarf[i]==yenisifre[j]):
+                        buyukH=True
+                    j += 1
+                i += 1
+            i = 0
+            for i in range(len(istenmeyenKarakter)):
+                for j in range(len(yenisifre)):
+                    if (istenmeyenKarakter[i] == yenisifre[j]):
+                        istenmeyenK = True
+                    j += 1
+                i += 1
+            i = 0
+            for i in range(len(rakam)):
+                for j in range(len(yenisifre)):
+                    if (rakam[i] == yenisifre[j]):
+                        rakams = True
+                    j += 1
+                i += 1
+            i = 0
+            for i in range(len(isaret)):
+                for j in range(len(yenisifre)):
+                    if (isaret[i] == yenisifre[j]):
+                        isarets = True
+                    j+=1
+                i += 1
+            if (uzunluk == False ):
+                print("!!8 karakterden kısa !!")
+            if (kucukH == False ):
+                print("!!küçük harf eksik!!")
+            if (buyukH == False ):
+                print("!!Büyük harf eksik!!")
+            if (istenmeyenK == True):
+                print("!!Türkçe karakter Bulunmamalı!!")
+            if (rakams == False ):
+                print("!!Rakam eksik!!")
+            if (isarets == False):
+                print("!!isaretler eksik!!")
+        return yenisifre
+
+
+account=Acount("123")
